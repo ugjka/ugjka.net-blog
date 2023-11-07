@@ -21,3 +21,10 @@ Esmu izveidojis Drovak tastatūras izkārtojumu ar Latviešu garumzīmēm priek�
 
 [latvian-dvorak-minus-variant-win.zip](https://ugjka.net/download/latvian-dvorak-minus-variant-win.zip)
 
+# Instalācija
+
+ <video width="800" controls>
+  <source src="/blog/video/dvorak_tutorial_win11.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> 
+
