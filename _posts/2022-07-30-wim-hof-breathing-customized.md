@@ -6,6 +6,11 @@ summary:    Wim Hof breathing exercise for maximum high
 categories: breathwork
 ---
 
+## Update: 01/12/2024
+
+I no longer practice this breathing exercise because I see no long term benifits other than getting high temporarily and I got addicted to it essentially. If you feel like you need to do this daily because you feel like shit otherwise then your are probably addicted too.
+
+
 Updated: 04/02/2023 (added tinnitus warning)
 
 ## Getting high off your own supply
