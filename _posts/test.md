@@ -1,9 +1,9 @@
 ---
-layout:     post
-title:      Woopker Mini Digital Amplifier X24 on Linux
-date:       2025-02-02
-summary:    Woopker Mini Digital Amplifier X24 (TPA3116) on Linux
-categories: linux
+layout: post  
+title: Woopker Mini Digital Amplifier X24 on Linux  
+date: 2025-02-02  
+summary: Woopker Mini Digital Amplifier X24 (TPA3116) on Linux  
+categories: linux  
 ---
 
 I recently inherited some Soviet-era speakers, so I was shopping for amplifiers I could use.
@@ -38,7 +38,7 @@ The amplifier has a knob for controlling the volume, but it seems to be buggy on
 
 The solution here is to disable the hardware mixer in Wireplumber so that the hardware volume knob becomes independent of the Linux volume settings.
 
-```
+```bash
 [ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/alsa-softmixer.conf 
 monitor.alsa.rules = [
   {
@@ -58,7 +58,7 @@ monitor.alsa.rules = [
 
 This is also a problem when connecting over Bluetooth. To fix this with Bluetooth, you need to disable hardware volume (also known as absolute volume):
 
-```
+```bash
 [ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/bluetooth-no-hw.conf 
 monitor.bluez.properties = {
   bluez5.enable-hw-volume = false
@@ -67,11 +67,9 @@ monitor.bluez.properties = {
 
 When connecting over Bluetooth, there are a couple of problems. I couldn't connect using KDE's Bluetooth manager; I had to use the [Blueman](https://archlinux.org/packages/extra/x86_64/blueman/) Bluetooth manager.
 
-![blueman interface](/blog/images/woopkerbt.png)
-
 The device will disconnect from Bluetooth when there is no audio sent. This is a problem on Linux because when there is silence, Pipewire will stop sending data, but fortunately, we can fix this with this Wireplumber config to keep sending data even if it is silence:
 
-```
+```bash
 [ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/alsa-no-idle.conf 
 monitor.alsa.rules = [
   {
@@ -96,4 +94,4 @@ If you are getting low volume, it is also worth checking the PCM volume with the
 
 ![woopker in action](/blog/images/woopkerinaction.jpg)
 
-That's all. I hope this is helpful to anyone looking to buy this little gadget.
+That's all. I hope this is helpful to anyone looking to buy this
