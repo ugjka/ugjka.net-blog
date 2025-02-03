@@ -2,7 +2,7 @@
 layout:     post
 title:      Woopker Mini Digital Amplifier X24 on Linux
 date:       2025-02-02
-summary:    Woopker Mini Digital Amplifier X24 (TPA3116) on Linux
+summary:    Getting a cheap AliExpress amplifier to work on Linux
 categories: linux
 ---
 
@@ -33,6 +33,8 @@ Here is how it is represented in audio settings:
 ![woopker kde audio settings](/blog/images/woopkerkde.png)
 
 Don't try the 5.1 profile unless you want a migraine ;)
+
+The device uses this chip: [TPA3116](https://www.ti.com/product/TPA3116D2)
 
 The amplifier has a knob for controlling the volume, but it seems to be buggy on Linux. There seems to be some sort of feedback loop when adjusting the volume from the Linux interface, as it will jump back to what the knob is set to. Also, vice versa, there is some weirdness when changing the volume with the knob.
 
