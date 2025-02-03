@@ -41,7 +41,7 @@ The amplifier has a knob for controlling the volume, but it seems to be buggy on
 The solution here is to disable the hardware mixer in Wireplumber so that the hardware volume knob becomes independent of the Linux volume settings.
 
 ```
-[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/alsa-softmixer.conf 
+[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/51-alsa-softmixer.conf 
 monitor.alsa.rules = [
   {
     matches = [
@@ -61,7 +61,7 @@ monitor.alsa.rules = [
 This is also a problem when connecting over Bluetooth. To fix this with Bluetooth, you need to disable hardware volume (also known as absolute volume):
 
 ```
-[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/bluetooth-no-hw.conf 
+[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/51-bluetooth-no-hw.conf 
 monitor.bluez.properties = {
   bluez5.enable-hw-volume = false
 }
@@ -74,23 +74,30 @@ When connecting over Bluetooth, there are a couple of problems. I couldn't conne
 The device will disconnect from Bluetooth when there is no audio sent. This is a problem on Linux because when there is silence, Pipewire will stop sending data, but fortunately, we can fix this with this Wireplumber config to keep sending data even if it is silence:
 
 ```
-[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/alsa-no-idle.conf 
-monitor.alsa.rules = [
+[ugjka@ugjka ~]$ cat .config/wireplumber/wireplumber.conf.d/51-bluez-no-idle.conf 
+# bluetooth devices
+monitor.bluez.rules = [
   {
     matches = [
       {
-        device.name = "~alsa_card.*"
+        # Matches all sources
+        node.name = "~bluez_input.*"
+      },
+      {
+        # Matches all sinks
+        node.name = "~bluez_output.*"
       }
     ]
     actions = {
       update-props = {
         session.suspend-timeout-seconds = 0
-        node.pause-on-idle = false
       }
     }
   }
 ]
 ```
+
+The only catch you need to play some audio after connecting to get it going.
 
 I also tested the 3.5mm aux connection; it works, but it introduces noise because my computer isn't grounded (Soviet-era house with outdated wiring).
 
