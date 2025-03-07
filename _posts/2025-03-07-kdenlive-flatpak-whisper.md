@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Whisper on Flatpak Kdenlive
-date:       2025-02-02
+date:       2025-03-07
 summary:    Getting Whisper speech to text to work on Kdenlive Flatpak
 categories: linux
 ---
