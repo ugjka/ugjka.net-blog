@@ -2,7 +2,7 @@
 layout:     post
 title:      Latviešu Dvorak tastatūras izkārtojums
 date:       2023-11-06
-summary:    Latviešu Dvorak tastatūras izkārtojums (mīnus "-" variants) ar garumzīmēm
+summary:    Latviešu Dvorak tastatūras izkārtojums (mīnus "-" variants) un (y variants) ar garumzīmēm
 categories: keyboard
 ---
 
@@ -13,6 +13,7 @@ Esmu izveidojis Dvorak tastatūras izkārtojumu ar Latviešu garumzīmēm priek�
 Šāda vajadzība radās, jo gadiem šo variantu lietoju uz Linux distribūcijām, kur tur to kāds jau bij izveidojis. Nu tagad ir arī priekš Windows 😉.
 
 
+
 ![izkārtojums](/blog/images/lvdvor2.png)
 
 ![mēmie taustiņi](/blog/images/lvdvor1.png)
@@ -20,6 +21,10 @@ Esmu izveidojis Dvorak tastatūras izkārtojumu ar Latviešu garumzīmēm priek�
 # Lejupielāde
 
 [latvian-dvorak-minus-variant-win.zip](https://ugjka.net/download/latvian-dvorak-minus-variant-win.zip)
+
+EDIT: [05/24/2025] pieejams ar "y" variants
+
+[latvian-dvorak-y-variant-win.zip](https://ugjka.net/download/latvian-dvorak-y-variant-win.zip)
 
 # Instalācija
 
